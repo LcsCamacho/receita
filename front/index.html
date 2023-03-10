@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7265da1770.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="home.css">
+    <title>Receitas</title>
+</head>
+
+<body>
+    <div class="container-geral">
+
+        <div class="cards-container model">
+            <div class="card-content">
+                <div class="card-title">
+                </div>
+                <div class="card-body">
+    
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Ver Receita</button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="container">
+            <header>
+                <ul>
+                    <li>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">
+                            Inserir Receita
+                        </button>
+                    </li>
+                </ul>
+            </header>
+    
+    
+            <div class="row" data-aos="fade-up" data-aos-duration="3000">
+                <div class="col-12">
+                    <h1>Destaques</h1>
+                    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0">Beijinho</li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100 img-fluid" src="../assets/beijinho.webp" alt="Segundo Slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Próximo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row mt-3" data-aos="fade-up" data-aos-duration="3000">
+                <div class="col-12">
+                   <div class="col-12 d-flex justify-content-between">
+                    <h1>Receitas</h1>
+                    <h1 id="control-edit" onClick="controlEditable()">Editar</h1>
+                   </div>
+    
+                    <div class="row">
+                        <div class="container cards"></div>
+    
+                    </div>
+                </div>
+            </div>
+    
+    
+    
+            <!-- Botão para acionar modal -->
+    
+    
+            <!-- Modal -->
+            <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="form-receita" class="d-flex flex-column">
+                                <label>Nome:</label>
+                                <input placeholder="Insira o nome da sua receita" type="text" name="nome" id="nome">
+                                <label>Ingredientes:</label>
+                                <input placeholder="Insira os ingredientes da sua receita" type="text" name="ingredientes"
+                                    id="ingredientes">
+                                <label>Modo de preparo:</label>
+                                <input placeholder="Insira o modo de preparo da sua receita" type="text" name="modo"
+                                    id="modo">
+                                <label>Tempo de preparo:</label>
+                                <input placeholder="Insira o tempo de preparo da sua receita" type="text" name="tempo"
+                                    id="tempo">
+                                <label>Porções:</label>
+                                <input placeholder="Insira a quantidade de porções da sua receita" type="text"
+                                    name="porcoes" id="porcoes">
+                                <label for="categ">Categoria</label>
+                                <select class="form-select" name="categ" id="categ">
+                                    <option value="1">Salgados</option>
+                                    <option value="2">Doces</option>
+                                    <option value="3">Bebidas</option>
+                                </select>
+                                <label>Imagem:</label>
+                                <div class="col-12">
+                                    <img id="img-insert" class="img-thumbnail" src="../assets/camera.png" alt="cam">
+                                </div>
+                                <input type="file" name="img-display" id="img-display" accept="image/*">
+                                <button type="submit" class="btn-success btn">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="home.js"></script>
+</body>
+
+</html>
