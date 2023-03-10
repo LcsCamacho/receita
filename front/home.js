@@ -3,7 +3,7 @@ const imgInsert = document.querySelector('#img-insert')
 const imgDisplay = document.querySelector('#img-display')
 const form = document.querySelector('#form-receita')
 const cardModel = document.querySelector('.cards-container')
-const urlBD = 'http://localhost:3000/receitas'
+const urlBD = 'http://localhost:3000/receita'
 let editable = false
 let editing = false
 
@@ -147,7 +147,7 @@ const saveCard = async (id, element) => {
     const cardBody = element.parentNode.parentNode.parentNode.querySelector('.card-body')
     const spans = cardBody.querySelectorAll('span')
 
-    const response = await fetch(`urlBD/${id}`, {
+    const response = await fetch(`${urlBD}/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -190,7 +190,7 @@ const editCard = async (element) => {
 const removeCard = async (id, element) => {
     let flag = confirm('Tem certeza que deseja remover essa receita?')
     if (!flag) return
-    const response = await fetch(`urlBD/${id}`, {
+    const response = await fetch(`${urlBD}/${id}`, {
         method: 'DELETE'
     })
     const data = await response.json()
