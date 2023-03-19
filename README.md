@@ -15,3 +15,5 @@ Passo a passo
 4 - Abrir o arquivo home.js e alterar a urlBD
 
 5 - Abrir o index.html
+
+[![wakatime](https://wakatime.com/badge/github/LcsCamacho/receita.svg)](https://wakatime.com/badge/github/LcsCamacho/receita)
